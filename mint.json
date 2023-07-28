@@ -11,20 +11,23 @@
     "dark": "#"
   },
   "topbarCtaButton": {
-    "name": "",
-    "url": ""
+    "name": "Sign Up",
+    "url": "https://api.axolo.co/identify/slack"
   },
   "topbarLinks": [
     {
-      "name": "",
-      "url": ""
+      "name": "Sign In",
+      "url": "https://api.axolo.co/signIn/slack"
     }
   ],
-  "anchors": [
+  "tabs": [
     {
-      "name": "",
-      "icon": "",
-      "url": ""
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "Community",
+      "url": "https://discord.gg/GupvcYH27h"
     }
   ],
   "navigation": [
@@ -34,7 +37,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "",
-    "linkedin": ""
+    "twitter": "https://twitter.com/axolo_co",
+    "github": "https://github.com/axolo-co",
+    "linkedin": "https://linkedin.com/company/axolo"
   }
 }
