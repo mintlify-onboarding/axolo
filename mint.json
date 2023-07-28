@@ -6,9 +6,9 @@
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#",
-    "light": "#",
-    "dark": "#"
+    "primary": "#0049FF",
+    "light": "#2765FF",
+    "dark": "#0049FF"
   },
   "topbarCtaButton": {
     "name": "Sign Up",
@@ -32,8 +32,14 @@
   ],
   "navigation": [
     {
-      "group": "",
-      "pages": [""]
+      "group": "Getting Started",
+      "pages": [
+        "getting-started/what-is-axolo",
+        "getting-started/installation-cloud",
+        "getting-started/github-enterprise",
+        "getting-started/gitlab-self-hosted",
+        "getting-started/expectation-during-trial"
+      ]
     }
   ],
   "footerSocials": {
