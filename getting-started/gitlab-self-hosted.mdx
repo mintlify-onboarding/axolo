@@ -1,0 +1,30 @@
+---
+title: "GitLab Self-Hosted Installation (and Scopes)"
+---
+
+## Create an Axolo app in your GitLab instance
+
+Axolo needs to be able to access your GitLab instance to fetch information about your projects. To do so, you need to create an Axolo app in your GitLab profile settings. To do so: Click on your profile picture in the top right corner of your menu bar in your GitLab instance, then click on “Edit Profile” and then “Applications”.
+
+Give it a name, we recommend `Axolo For Slack`. Add these two redirect URIs:
+
+- https://api.axolo.co/redirect/gitlab
+- https://api.axolo.co/player/auth/gitlab/callback
+
+Be sure that the `Confidential` setting is checked.
+
+The token needs to have the following scopes:
+
+- api (Access the authenticated user's API)
+- read_user (Read the authenticated user's personal information)
+- openid (Authenticate using OpenID Connect)
+- profile (Allows read-only access to the user's personal information using OpenID Connect)
+- email (Allows read-only access to the user's primary email address using OpenID Connect)
+
+Then, save changes, keep this page open (you will need the App ID and Secret) and follow the process on app.axolo.co to share your App ID and Secret with Axolo.
+
+<Tip>
+  Self hosted instances who are behing a VPN, or a firewall, will need to add
+  the IP address of the Axolo server to the list of allowed IPs. Get in contact
+  with us in the chat below for further information.
+</Tip>

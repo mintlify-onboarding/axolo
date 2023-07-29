@@ -1,0 +1,150 @@
+---
+title: "Make the Best of Axolo"
+---
+
+Here is a list of recommandations to make the best of Axolo. We recommend you to share this with your team so that everyone is on the same page. Here is a summary of them all:
+
+|           Recommendation            |                     Reason                      |
+| :---------------------------------: | :---------------------------------------------: |
+|      Set up your notifications      |             To focus while working              |
+|             Codeowners              |  To automatically add reviewers in PR channels  |
+|           Slack sections            |         To find your PR channels easily         |
+|           Axolo timeslots           |      To only get notified when you want to      |
+| Auto-leave when a reviewer approves |  Clear out your channel inbox with this option  |
+|        Set up team channels         |       Have a high-level view of your team       |
+| Configure Slack to show media files | See those screenshots directly in your channels |
+
+## Set up your notifications
+
+1. turn off email notifications from GitHub or GitLab (disable the `Global notification level`),
+
+2. set up Slack notifications for `Direct messages, mentions & keywords` or Nothing. Being notified for every message disturbs your work.
+
+![](/images/slack_notif.webp)
+
+## How to use Slack sections
+
+As Slack does not provide any way to handle sections in its API, Axolo can't manage your channels in sections, but we have a solution!
+
+We recommend to clean the default `Channels` section from any non-Axolo channels. That way, all your Axolo channels will automatically be created in this default section and won't be mixed up with the rest of your environment.
+
+![](/images/channels.webp)
+
+## Codeowners for GitHub
+
+Code owners are a good way to automatically invite reviewers on pull requests in your Slack channel.
+
+### Install code owners to automate review requests
+
+You can find the complete documentation about code owners on GitHub.
+
+Quick start:
+
+1. Add a CODEOWNER file in the root, docs/, or .github/ directory of the repository,
+2. Go on your code review team settings page,
+
+![](/images/codeowner_teamsetting.webp)
+
+![](/images/codeowner_teamsetting-1.webp)
+
+3. Set up the settings following the instructions in `Automatically add a whole team as reviewers PR channels or Automatically add a specific individual reviewers PR channels` sections.
+
+## Automatically add a whole team as reviewers in PR channels
+
+If you wish to add a whole team to each PR channel, you should make sure that:
+
+- Only notify requested team members is off,
+- Enable auto assignment is on,
+- When assigning team members, remove the review request for the team, is off.
+- your Axolo settings for Set the maximum number of reviewers to invite in PR channels when you request a team as reviewer is set to a number higher than your team size (ex: if you want to add 3 reviewers in each PR, set it as >= 3) - you can find this setting in your General page on app.axolo.co
+
+## Automatically add a specific individual reviewers in PR channels
+
+If you wish to add specific individuals only in PR channels, you should make sure that:
+
+- Only notify requested team members is on,
+- Enable auto assignment is on,
+- Set up the number of automatic assignments to your preference,
+- When assigning team members, remove the review request for the team, that is on.
+- your Axolo settings for Set the maximum number of reviewers to invite in PR channels when you request a team as reviewer is set to a low number (less than your team specified in the code owners file) - you can find this setting in your General page app.axolo.co
+
+## Troubleshooting: reviewers are not invited to PR channels
+
+### Is the PR ready for review?
+
+If the PR is not ready for review (still in draft), reviewers won't be invited to the PR channel. You should see the moon icon in the PR reviewer section.
+
+![](/images/stand-up.webp)
+
+## How to use Axolo timeslots
+
+Axolo's timeslots are meant to preserve developers' focus. By creating timeslots from the Axolo home in Slack, each time someone request a review from you, you will only be invited right away if the time is within one of your timeslot, or at the beginning or the next timeframe.
+
+![](/images/invite_later.webp)
+
+![](/images/timeslots.webp)
+
+## Auto-leave when a reviewer approves
+
+If your admin enables the auto-leave feature, you will automatically leave a pull request channel 20 seconds after approving it (only available on GitHub for now).
+
+![](/images/automatic_leave.webp)
+
+## Set up team-specific channels
+
+If your engineering team is divided in squads and you're interested in using the Axolo general channel feature, we recommend to enable team-specific channels for each of your squad. That way, new PR/MR will create a notification only in their corresponding squads without notifying people that should not.
+
+## Configure Slack to show media files
+
+By default, Slack does not show file larger than 2MB. You can change this setting in your parameters.
+
+![](/images/slack_file.webp)
+
+Do you think we're missing something that you implemented in your team? Please tell us in the chat!
+
+## Understanding Axolo pull request status
+
+![](/images/realtime-1.webp)
+
+There are 6 different status for a pull request in Axolo and each status has a dedicated emoji reaction inside team channels:
+
+|  Pull Request Status   | Default Emoji |
+| :--------------------: | :-----------: |
+|         Draft          |      ✏️       |
+| WIP (Work-in-progress) |      🔧       |
+|       Reviewable       |      🙏       |
+|       Mergeable        |      🟢       |
+|         Closed         |      🛑       |
+|         Merged         |      ✅       |
+
+### Draft
+
+On GitHub, a pull request is considered a draft when it has a draft status. On GitLab, a merge request is considered draft when its title starts with 'draft:' or 'wip:'.
+
+Axolo will create a channel and invite the author (and its reviewers if the author assigned them). On GitHub, it will not invite reviewers that are automatically assigned by a code owner file as GiHub does not 'request a review' until the pull request is `ready for review`.
+
+The notification inside team channels is not created yet, it will be sent only when the pull request is `ready for review`.
+
+### Ready for review
+
+When a pull request is ready for review, it means that it is ready to be reviewed.
+
+### Work-in-progress
+
+When a pull request is in work-in-progress, it means that it was ready for ready and something changed this status. This change may be caused by:
+
+- on GitHub, someone requested changes on the pull request,
+- the CI/CD has revealed some error that prevent the pull request to be merged,
+- Axolo thinks there is a conflict with the base/target branch.
+
+### Mergeable
+
+When a pull request is mergeable, it means that it is ready to be merged. To be mergeable, a pull request needs to:
+
+- receive the minimum amount of approvals,
+- have no conflict with the base/target branch,
+- pass all the required CI/CD checks.
+
+### Merged/Closed
+
+When a pull request is merged or closed, it means that it is no longer open.

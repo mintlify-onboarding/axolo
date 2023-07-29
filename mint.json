@@ -22,12 +22,12 @@
   ],
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "Blog",
+      "url": "https://axolo.co/blog/p"
     },
     {
       "name": "Community",
-      "url": "https://discord.gg/GupvcYH27h"
+      "url": "https://join.slack.com/t/axolo-community/shared_invite/zt-s2vkbyt2-AACaP6tnQS0adwezMXVlHQ"
     }
   ],
   "navigation": [
@@ -38,7 +38,9 @@
         "getting-started/installation-cloud",
         "getting-started/github-enterprise",
         "getting-started/gitlab-self-hosted",
-        "getting-started/expectation-during-trial"
+        "getting-started/expectation-during-trial",
+        "getting-started/best-of-axolo",
+        "getting-started/video-and-talk"
       ]
     }
   ],
