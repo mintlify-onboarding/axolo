@@ -12,3 +12,102 @@ To install Axolo, you’ll need to sign up from [our home page](https://axolo.co
 #### Bot Scopes
 
 The following scopes are the scopes we require for Axolo to work.
+
+![](/images/slack_scopes.png)
+
+| Bot Scopes        |                                                                     Reason                                                                      |
+| ----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| app_mentions:read |                                           View messages that directly mention @axolo in conversations                                           |
+| channels:manage   |                                     Manage public channels that Axolo has been added to and create new ones                                     |
+| channels:history  | See which messages need to be updated in a channel (for example, a pull request doesn't have a conflict anymore we need to delete that message) |
+| channels:read     |                                                     View basic information about a channel                                                      |
+| commands          |                                              LGTM command to allow approving a PR right from Slack                                              |
+| groups:history    |                                View messages and other content in private channels that Axolo has been added to                                 |
+| groups:write      |                                    Manage private channels that Axolo has been added to and create new ones                                     |
+| reactions:write   |                                                          Add and edit emoji reactions                                                           |
+| chat:write        |                                               Post messages in approved channels & conversations                                                |
+| chat:write.public |                                            Send messages to public channels @axolo isn't a member of                                            |
+| im:history        |                                 View messages and other content in direct messages that Axolo has been added to                                 |
+| im:read           |                                    View basic information about direct messages that Axolo has been added to                                    |
+| im:write          |                                                        Start direct messages with people                                                        |
+| users:read        |                                                           View people in a workspace                                                            |
+| reactions:read    |                  View emoji reactions and their associated content in channels and conversations that Axolo has been added to                   |
+| emoji:read        |                                                        View custom emoji in a workspace                                                         |
+
+### User Scopes
+
+Optional scopes are to be granted from every user onboarded on Axolo. They allow us to reduce notifications when the engineer does an action in GitHub.
+
+| User Scope      | Reason                                                                   |
+| --------------- | ------------------------------------------------------------------------ |
+| chat:write      | Post messages in approved channels & conversations                       |
+| channels:write  | Manage a user’s public channels and create new ones on a user’s behalf   |
+| groups:write    | Manage private channels that Axolo has been added to and create new ones |
+| reactions:write | Add and edit emoji reactions                                             |
+
+## GitHub installation (and scopes)
+
+When the Slack application is installed, you will need to install our GitHub or GitLab application.
+
+You need to choose between installing Axolo on all of your organization repositories or selecting only specific repositories. You will be able to add new repositories along the way if you choose the latter.
+
+![](/images/Github+installation-1.png)
+
+<Warning>
+  Axolo does not have access to your company’s code. GitHub code lies in the
+  “Content API”. More information about GitHub scopes can be [found
+  here](https://docs.github.com/en/rest/reference/permissions-required-for-github-apps#about-github-app-permissions)
+</Warning>
+
+### Required GitHub scopes
+
+| Scope            |  Permission  | Description                                                                                                |
+| ---------------- | :----------: | ---------------------------------------------------------------------------------------------------------- |
+| Actions          |     Read     | Workflows, workflow runs, and artifacts                                                                    |
+| Administration   |     Read     | Repository creation, deletion, settings, teams, and collaborators                                          |
+| Deployments      |     Read     | Deployments and deployment statuses                                                                        |
+| Members          |     Read     | Organization members and teams                                                                             |
+| Metadata         |     Read     | Search repositories, list collaborators, and access repository metadata                                    |
+| Repository hooks |     Read     | Repository created, deleted, archived, unarchived, publicized, privatized, edited, renamed, or transferred |
+| Status           |     read     | Commit status updated from the API                                                                         |
+| Team discussions |     Read     | Discussions and related comments and labels                                                                |
+| Issues           | Read & Write | Issues and related comments, assignees, labels, and milestones                                             |
+| Pull requests    | Read & Write | Pull requests and related comments, assignees, labels, milestones, and merges                              |
+| Workflow run     |     Read     | Workflow run requested or completed on a repository                                                        |
+
+## GitLab Cloud installation (and scopes)
+
+If your team is on GitLab, the installation is very similar to GitHub but less granular.
+
+After installing the application, you will need to select the GitLab group you want to integrate with Axolo. Then, Axolo will save your organization members and project information.
+
+### Required GitLab scopes
+
+|  scope  |                                   description                                    |
+| :-----: | :------------------------------------------------------------------------------: |
+|   api   |                       Access the authenticated user's API                        |
+| openid  |                        Authenticate using OpenID Connect                         |
+| profile | Allows read-only access to the user's personal information using OpenID Connect  |
+|  email  | Allows read-only access to the user's primary email address using OpenID Connect |
+
+## Axolo onboarding
+
+### Onboard your team
+
+Now that Slack and GitHub/GitLab applications are configured, we only need to match GitHub/GitLab members to Slack users.
+
+_You can filter your team members by specific GitHub/GitLab teams, or search their logins._
+
+![](/images/select-members-1.png)
+
+### Create a team channel
+
+The final step is to establish your first team channel. Team channels keep your team informed of new pull requests in a specific Slack channel and automatically sync PR Status, Reviewers, Assignees. It will show with an emoji what is the reviewer current state (ie: 👍 approved, 💬 comments).
+
+![](/images/realtime-1.webp)
+
+If you're a new Axolo user, we suggest starting with the default \_axolo channel settings. You can always fine-tune your team channels later on.
+
+🎉 Congratulations! You can start using Axolo. You can directly create PR channels for open pull requests, or go to your organization settings to personalize your Axolo experience.
+
+We recommend you read our [Make the best of Axolo guide](/getting-started/best-of-axolo) to getting started.
